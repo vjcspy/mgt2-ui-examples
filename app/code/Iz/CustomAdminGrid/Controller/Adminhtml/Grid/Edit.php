@@ -4,10 +4,11 @@
 namespace Iz\CustomAdminGrid\Controller\Adminhtml\Grid;
 
 
+use Iz\CustomAdminGrid\Controller\Adminhtml\Grid;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultFactory;
 
-class Edit extends \Magento\Backend\App\Action
+class Edit extends Grid
 {
 
     /**
@@ -20,7 +21,6 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        return $resultPage;
+        return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }
 }
