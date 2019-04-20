@@ -42,19 +42,19 @@
     </type>
 
 
-    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Data\MassDelete">
+    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Grid\MassDelete">
         <arguments>
             <argument name="successMessage" xsi:type="string" translate="true">A total of %1 record(s) have been deleted.</argument>
             <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while deleting record(s).</argument>
         </arguments>
     </type>
-    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Data\MassDisable">
+    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Grid\MassDisable">
         <arguments>
             <argument name="successMessage" xsi:type="string" translate="true">A total of %1 data have been disabled.</argument>
             <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while disabling selected data.</argument>
         </arguments>
     </type>
-    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Data\MassEnable">
+    <type name="Iz\CustomAdminGrid\Controller\Adminhtml\Grid\MassEnable">
         <arguments>
             <argument name="successMessage" xsi:type="string" translate="true">A total of %1 data have been enabled.</argument>
             <argument name="errorMessage" xsi:type="string" translate="true">An error occurred while enabling data.</argument>

@@ -66,21 +66,21 @@
                         <message translate="true">Are you sure you want to delete selected items?</message>
                         <title translate="true">Delete items</title>
                     </confirm>
-                    <url path="sample/data/massDelete"/>
+                    <url path="iz_custom_admin_grid/grid/massDelete"/>
                     <type>delete</type>
                     <label translate="true">Delete</label>
                 </settings>
             </action>
             <action name="disable">
                 <settings>
-                    <url path="sample/data/massDisable"/>
+                    <url path="iz_custom_admin_grid/grid/massDisable"/>
                     <type>disable</type>
                     <label translate="true">Disable</label>
                 </settings>
             </action>
             <action name="enable">
                 <settings>
-                    <url path="sample/data/massEnable"/>
+                    <url path="iz_custom_admin_grid/grid/massEnable"/>
                     <type>enable</type>
                     <label translate="true">Enable</label>
                 </settings>
