@@ -1,13 +1,4 @@
 <?php
-/*
- * SussexDev_Sample
-
- * @category   SussexDev
- * @package    SussexDev_Sample
- * @copyright  Copyright (c) 2019 Scott Parsons
- * @license    https://github.com/ScottParsons/module-sampleuicomponent/blob/master/LICENSE.md
- * @version    1.1.2
- */
 namespace Iz\CustomAdminGrid\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;

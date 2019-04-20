@@ -3,90 +3,123 @@
       xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">iz_custom_admin_grid_form.iz_custom_admin_grid_form_data_source</item>
+            <item name="provider" xsi:type="string">iz_custom_admin_grid_form.sample_data_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Custom Information</item>
-        <item name="reverseMetadataMerge" xsi:type="boolean">true</item>
+        <item name="label" xsi:type="string" translate="true">Data Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
-    <dataSource name="iz_custom_admin_grid_form_data_source">
+
+    <!--Add button-->
+    <settings>
+        <buttons>
+            <button name="back" class="Iz\CustomAdminGrid\Block\Adminhtml\Data\Edit\Buttons\Back"/>
+            <button name="delete" class="Iz\CustomAdminGrid\Block\Adminhtml\Data\Edit\Buttons\Delete"/>
+            <button name="reset" class="Iz\CustomAdminGrid\Block\Adminhtml\Data\Edit\Buttons\Reset"/>
+            <button name="save" class="Iz\CustomAdminGrid\Block\Adminhtml\Data\Edit\Buttons\Save"/>
+            <button name="save_and_continue"
+                    class="Iz\CustomAdminGrid\Block\Adminhtml\Data\Edit\Buttons\SaveAndContinue"/>
+        </buttons>
+        <namespace>sample_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>iz_custom_admin_grid_form.sample_data_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="sample_data_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
             </item>
         </argument>
-<!--        <settings>-->
-<!--            <validateUrl path="customer/index/validate"/>-->
-<!--            <submitUrl path="customer/index/save"/>-->
-<!--        </settings>-->
-        <dataProvider class="Iz\CustomAdminGrid\Model\CustomDataProvider" name="iz_custom_admin_grid_form_data_source">
+        <settings>
+            <submitUrl path="iz_custom_admin_grid/grid/save"/>
+        </settings>
+        <dataProvider class="Iz\CustomAdminGrid\Model\DataProvider" name="sample_data_form_data_source">
             <settings>
                 <requestFieldName>id_column</requestFieldName>
                 <primaryFieldName>id_column</primaryFieldName>
             </settings>
         </dataProvider>
     </dataSource>
-    <fieldset name="custom_grid_form">
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="collapsible" xsi:type="boolean">true</item>
-                <item name="label" xsi:type="string" translate="true">Employee Details</item>
-                <item name="sortOrder" xsi:type="number">20</item>
-            </item>
-        </argument>
-        <field name="id_column">
+    <fieldset name="data_details">
+        <settings>
+            <label/>
+        </settings>
+        <field name="id_column" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Employee Id</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">employee</item>
-                    <item name="dataScope" xsi:type="string">id_column</item>
+                    <item name="source" xsi:type="string">data</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+                <dataScope>id_column</dataScope>
+            </settings>
         </field>
-        <field name="severity">
+        <field name="is_active" formElement="checkbox">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Employee Name</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">employee</item>
-                    <item name="dataScope" xsi:type="string">employee_name</item>
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="default" xsi:type="number">1</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Data</label>
+                <dataScope>is_active</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
         </field>
-        <field name="severity">
+        <field name="data_title" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">severity</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">employee</item>
-                    <item name="dataScope" xsi:type="string">severity</item>
+                    <item name="source" xsi:type="string">data</item>
                 </item>
             </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Data Title</label>
+                <dataScope>data_title</dataScope>
+            </settings>
         </field>
-        <field name="title">
+        <field name="data_description" formElement="wysiwyg">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">int</item>
-                    <item name="label" xsi:type="string" translate="true">severity</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">employee</item>
-                    <item name="dataScope" xsi:type="string">title</item>
+                    <item name="source" xsi:type="string">data</item>
                 </item>
             </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label/>
+                <dataScope>data_description</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
         </field>
-<!--        <field name="time_occurred">-->
-<!--            <argument name="data" xsi:type="array">-->
-<!--                <item name="config" xsi:type="array">-->
-<!--                    <item name="dataType" xsi:type="string">int</item>-->
-<!--                    <item name="label" xsi:type="string" translate="true">severity</item>-->
-<!--                    <item name="formElement" xsi:type="string">datetime</item>-->
-<!--                    <item name="source" xsi:type="string">employee</item>-->
-<!--                    <item name="dataScope" xsi:type="string">time_occurred</item>-->
-<!--                </item>-->
-<!--            </argument>-->
-<!--        </field>-->
     </fieldset>
 </form>

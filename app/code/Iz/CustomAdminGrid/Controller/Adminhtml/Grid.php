@@ -15,7 +15,7 @@ abstract class Grid extends \Magento\Backend\App\Action
      *
      * @see _isAllowed()
      */
-    const ACTION_RESOURCE = 'SussexDev_Sample::data';
+    const ACTION_RESOURCE = 'Iz_CustomAdminGrid::data';
 
     /**
      * Data repository
