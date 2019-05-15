@@ -1,0 +1,15 @@
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="product.info.main">
+        <container name="product.info.main.test.1.2.3" htmlTag="div" htmlClass="product-info-main-123" before="-">
+            <!--<block class="Magento\Catalog\Block\Product\View\Description" name="test.product.info.sku" template="Magento_Catalog::product/view/attribute.phtml" after="product.info.type">-->
+                <!--<arguments>-->
+                    <!--<argument name="at_call" xsi:type="string">getSku</argument>-->
+                    <!--<argument name="at_code" xsi:type="string">sku</argument>-->
+                    <!--<argument name="css_class" xsi:type="string">sku</argument>-->
+                    <!--<argument name="at_label" xsi:type="string">default</argument>-->
+                    <!--<argument name="add_attribute" xsi:type="string">itemprop="sku"</argument>-->
+                <!--</arguments>-->
+            <!--</block>-->
+        </container>
+    </referenceContainer>
+</page>
